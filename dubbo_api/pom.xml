@@ -11,8 +11,8 @@
     <groupId>com.wzg.springbootdubbo</groupId>
     <artifactId>dubbo_api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dubbo_api</name>
-    <description>Demo project for Spring Boot</description>
+    <name>Springboot_dubbo接口服务</name>
+    <description>接口服务主要提供接口以及实体类</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -7,6 +7,7 @@
     <groupId>org.wzg.dubbo_springboot</groupId>
     <artifactId>springboot-dubbo</artifactId>
     <version>1.0.0</version>
+    <name>Springboot_Dubbo父类</name>
 
     <modules>
         <module>dubbo_api</module>

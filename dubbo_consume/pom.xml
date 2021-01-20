@@ -11,7 +11,7 @@
     <groupId>com.wzg.springbootdubbo</groupId>
     <artifactId>dubbo_consume</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dubbo_consume</name>
+    <name>dubbo消费端</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
