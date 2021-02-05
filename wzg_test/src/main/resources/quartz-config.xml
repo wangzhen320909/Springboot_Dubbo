@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--定时删除数据库数据任务-->
+    <!-- 配置Job类 -->
+    <bean id="sysDataJob" class="com.test.demowzg.wzg_test.task.SysDataJob"></bean>
+    <!-- 配置JobDetail -->
+    <bean id="springQtzJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 执行目标job -->
+        <property name="targetObject" ref="sysDataJob"></property>
+        <!-- 要执行的方法 -->
+        <property name="targetMethod" value="deleteInfo"></property>
+        <property name="concurrent" value="false"></property><!--配置为false不允许任务并发执行-->
+    </bean>
+    <!-- 配置tirgger触发器 -->
+    <bean id="cronTrigger1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- jobDetail -->
+        <property name="jobDetail" ref="springQtzJob"></property>
+        <!-- cron表达式，执行时间每10秒执行一次 -->
+        <!-- 可以根据自己的需求指定执行时间 -->
+        <property name="cronExpression" value="0/10 * * * * ? "></property>
+    </bean>
+    <!-- 配置调度工厂 -->
+    <bean id="springJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger1"></ref>
+                <!-- <ref bean="cronTrigger2"></ref>-->
+            </list>
+        </property>
+
+    </bean>
+</beans>
